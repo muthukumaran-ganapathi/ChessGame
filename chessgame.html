@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>Click on the link to give input</p>
+<button onclick="myFunction()">Output</button>
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var rowpos = prompt("Enter Initial Position of Queen in row", "Ex: a or b or c or d....f");
+  var j;
+  switch(rowpos)
+  {
+  	case 'a': j = parseInt("0"); break;
+  	case 'b': j = parseInt("1"); break;
+  	case 'c': j = parseInt("2"); break;
+  	case 'd': j = parseInt("3"); break;
+  	case 'e': j = parseInt("4"); break;
+  	case 'f': j = parseInt("5"); break;
+  	case 'g': j = parseInt("6"); break;
+  	case 'h': j = parseInt("7"); break;
+  }
+  var i = prompt("Enter Initial Position of Queen in column", "Ex: 1,2,3,4,5,6,7,8");
+   i = parseInt(i) - 1;
+  var north = prompt("Enter steps to move in North Direction Position", "Ex: 1/2/3/4");
+  var south = prompt("Enter steps to move in South Direction Position", "Ex: 1/2/3/4");
+  var east = prompt("Enter steps to move in East Direction Position", "Ex: 1/2/3/4");
+  var west = prompt("Enter steps to move in West Direction Position", "Ex: 1/2/3/4");
+  
+  i = i - parseInt(north);
+  if(i < 0)
+  {
+  	document.getElementById("demo").innerHTML =
+    "Queen Moved out of bound";
+  }
+  else
+  {
+  	i = i + parseInt(south);
+  	if(i > 7)
+  	{
+  		document.getElementById("demo").innerHTML =
+    		"Queen Moved out of bound";
+  	}
+  	else
+  	{
+  		j = j + parseInt(east);
+  		if(j>7)
+  		{
+  			document.getElementById("demo").innerHTML =
+    		"Queen Moved out of bound";
+  		}
+  		else
+  		{
+  			j = j - parseInt(west);
+  			if(j < 0)
+  			{
+  				document.getElementById("demo").innerHTML =
+    		"Queen Moved out of bound";
+  			}
+  			else
+  			{
+  				i = i + 1;
+  				 switch(j)
+				  {
+				  	case 0: j = 'a'; break;
+				  	case 1: j = 'b'; break;
+				  	case 2: j = 'c'; break;
+				  	case 3: j = 'd'; break;
+				  	case 4: j = 'e'; break;
+				  	case 5: j = 'f'; break;
+				  	case 6: j = 'g'; break;
+				  	case 7: j = 'h'; break;
+				  }
+
+  				document.getElementById("demo").innerHTML =
+    		"The Queen is in the position "+j+""+i;
+  			}
+  		}
+  	}
+  }
+
+
+
+}
+
+
+
+
+</script>
+
+</body>
+</html>
